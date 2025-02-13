@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        unordered_map<int, int>countMap;
+        for(int num: nums)
+        {
+            if(countMap.find(num)!=countMap.end())
+            {
+                return num;
+            }
+            countMap[num]=1;
+        }
+        return 0;
+    }
+    int main() 
+    {
+    vector<int> nums1 = {1, 3, 4, 2, 2};
+    cout << "Output 1: " << findDuplicate(nums1) << endl; 
+    vector<int> nums2 = {3, 1, 3, 4, 2};
+    cout << "Output 2: " << findDuplicate(nums2) << endl; 
+    vector<int> nums3 = {3, 3, 3, 3, 3};
+    cout << "Output 3: " << findDuplicate(nums3) << endl; 
+    return 0;
+}
+};
